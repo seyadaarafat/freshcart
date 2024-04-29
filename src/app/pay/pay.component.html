@@ -1,0 +1,21 @@
+
+<div class="container">
+
+<form [formGroup]="addressForm" (ngSubmit)="addressFormSubmit()" class="py-5">
+    <div>
+        <label for="">Details:</label>
+        <input formControlName="details" type="text" class="form-control">
+    </div>
+    <div>
+        <label for="">phone:</label>
+        <input formControlName="phone" type="text" class="form-control">
+    </div>
+    <div>
+        <label for="">City:</label>
+        <input formControlName="city" type="text" class="form-control">
+    </div>
+
+    <button type="submit" class="btn btn-success mt-3">Pay</button>
+</form>
+
+</div>

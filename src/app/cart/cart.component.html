@@ -1,0 +1,38 @@
+
+
+
+<div class="d-flex justify-content-between mt-4">
+    <h2>Cart Shop</h2>
+    <button (click)="clearCart()" class="btn btn-sm btn-danger rounded-3 ">Clear Your Cart</button>
+</div>
+
+<h1 class="text-center text-main mt-5 ">Total Price: {{totalPrice}} </h1>
+
+<div class=" mb-4  g-2">
+    <div *ngFor="let item of cartItems" class="row align-items-center">
+        <div class="col-md-3">
+            <img class="w-100" [src]="item.product.imageCover"  [alt]="item.product.title">
+        </div>
+        <div class="col-md-7">
+            <h1 class="h4">{{item.product.title}}</h1>
+            <span class="text-main fw-bold my-1 fs-5">{{item.product.category.name}}</span>
+            <div class=" align-items-center">
+                <span class="my-1">Price: {{item.price }} EGP</span>
+
+                <div class="">
+                    <i class="fas fa-star rating-color"></i>
+                    <span class="text-muted">{{item.product.ratingsAverage}}</span>
+                </div>
+
+                <i (click)="removeItemBtn(item.product._id)" class="fa-solid fa-trash-can text-danger fs-5 mt-4 cursor-pointer"></i>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <i (click)="updateItemsQuBtn('plus' , item.count ,item.product._id )" class="fa-solid fa-circle-plus text-main fs-5 cursor-pointer"></i>
+            <span class="fs-5 mx-2">{{item.count}}</span>
+            <i (click)="updateItemsQuBtn('minus' , item.count, item.product._id)" class="fa-solid fa-circle-minus text-main fs-5 cursor-pointer"></i>
+        </div>
+
+    </div>
+    <button [routerLink]="['/pay' , cartId]" class="btn btn-success d-block ms-auto mt-3">Check Out</button>
+</div>
